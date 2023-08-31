@@ -51,7 +51,7 @@ export default function AddCategory({ show, onClose }) {
             formData.append("image", file);
             console.log(res.data);
     
-            axios.post(`http://localhost:8081/uploadCategoryImg/${res.data.insertId}`, formData)
+            axios.post(`https://cafeapp-y5se.onrender.com/uploadCategoryImg/${res.data.insertId}`, formData)
                 .then(uploadRes => {
                     console.log(uploadRes.data);
                 })
