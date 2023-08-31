@@ -15,7 +15,7 @@ export default function StockTable({ show, onClose }) {
     axios.get("https://cafeapp-y5se.onrender.com/getAllProducts")
       .then(res => {
         const updatedRows = res.data.map(async product => {
-          const stockResponse = await axios.get(`http://localhost:8081/getStock/${product.id}`);
+          const stockResponse = await axios.get(`https://cafeapp-y5se.onrender.com/getStock/${product.id}`);
           const stockValue = stockResponse.data && stockResponse.data.length > 0
             ? stockResponse.data[0].stok
             : "0";
