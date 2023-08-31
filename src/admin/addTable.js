@@ -37,7 +37,7 @@ export default function AddTable({ show, onClose }) {
 
     const save = () => {
         successToast();
-        axios.post("http://localhost:8081/setTable",tableInfo)
+        axios.post("https://cafeapp-y5se.onrender.com/setTable",tableInfo)
         .then(res => {
             console.log(res.data);
         })
