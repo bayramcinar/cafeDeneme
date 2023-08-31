@@ -54,7 +54,7 @@ function Product({productID, productImage, productTitle, productPrice, productSt
     const addCart = () => {
         if (stock > 0) {  
             successToast();
-            axios.post("http://localhost:8081/sendToCart", values)
+            axios.post("https://cafeapp-y5se.onrender.com/sendToCart", values)
                 .then(res => {
                 })
                 .catch(err => console.log(err));
