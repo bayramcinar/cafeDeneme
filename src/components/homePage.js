@@ -17,29 +17,29 @@ function HomePage() {
         <div className='generalDiv'>
             <div className='ortalama'>
                 <div className='informations'>
-                    <div className='nameAndImg'>
+                    <div className='nameAndImg animate__animated animate__fadeInDown'>
                         <img className='homepageLogo' src={logo}></img>
                         <h1 className='homepageTitle'>Roz Cafe</h1>
                     </div>
                     <div className='phoneAndAddress'>
-                        <h3 className='time'>
+                        <h3 className='time animate__animated animate__fadeInLeft'>
                             <img className='minimalPhotos' src={time}></img>
                             08:30-00:00</h3>
-                        <h4 className='homepagePhone'>
+                        <h4 className='homepagePhone animate__animated animate__fadeInRight'>
                             <img className='minimalPhotos' src={phone}></img>
                             03245158974</h4>
-                        <h5 className='homepageAddress'>
+                        <h5 className='homepageAddress animate__animated animate__fadeInLeft'>
                             <img className='minimalPhotos' src={address}></img>
                             Akdeniz Mah. Erdemoğlu Blv. No:34/11 Erdemli/Mersin</h5>
                     </div>
                     <div className='socialMedia'>
-                        <a href='#' target='_blank'>
+                        <a href='#' target='_blank' className='animate__animated animate__heartBeat'>
                             <img className='socialImg' src={instagram}></img>
                         </a>
-                        <a href='#' target='_blank'>
+                        <a href='#' target='_blank' className='animate__animated animate__heartBeat'>
                             <img className='socialImg' src={facebook}></img>
                         </a>
-                        <a href='#' target='_blank'>
+                        <a href='#' target='_blank' className='animate__animated animate__heartBeat'>
                             <img className='socialImg' src={twitter}></img>
                         </a>
                     </div>
