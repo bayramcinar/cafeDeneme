@@ -29,7 +29,7 @@ function Orders() {
 
 
     useEffect(() => { 
-        axios.get("http://localhost:8081/getCartAdmin")
+        axios.get("https://cafeapp-y5se.onrender.com/getCartAdmin")
           .then(res => {
             setOrders(res.data.mergedOrders); 
             setOrderPrice(res.data.totalToplamByMasa);
@@ -38,7 +38,7 @@ function Orders() {
     },[orders]);  
 
     useEffect(() => { 
-        axios.get("http://localhost:8081/getCartAdminComplated")
+        axios.get("https://cafeapp-y5se.onrender.com/getCartAdminComplated")
           .then(res => {
             setOrdersComplated(res.data.mergedOrders); 
             setOrderPriceComplated(res.data.totalToplamByMasa);
@@ -48,11 +48,11 @@ function Orders() {
 
       
     const deleteTableOrder = (masaID) =>{
-        axios.delete(`http://localhost:8081/silCartAdmin/${masaID}`)
+        axios.delete(`https://cafeapp-y5se.onrender.com/silCartAdmin/${masaID}`)
         .then(res => {
         })
         .catch(err => console.log(err))
-        axios.get("http://localhost:8081/getCartAdmin")
+        axios.get("https://cafeapp-y5se.onrender.com/getCartAdmin")
             .then(res => {
               setOrders(res.data.mergedOrders); 
               setOrderPrice(res.data.totalToplamByMasa);
@@ -62,11 +62,11 @@ function Orders() {
     }
 
     const deleteComplatedTableOrder = (masaID) =>{
-        axios.delete(`http://localhost:8081/silCartAdminComplated/${masaID}`)
+        axios.delete(`https://cafeapp-y5se.onrender.com/silCartAdminComplated/${masaID}`)
         .then(res => {
         })
         .catch(err => console.log(err))
-        axios.get("http://localhost:8081/getCartAdminComplated")
+        axios.get("https://cafeapp-y5se.onrender.com/getCartAdminComplated")
             .then(res => {
               setOrdersComplated(res.data.mergedOrders); 
               setOrderPriceComplated(res.data.totalToplamByMasa);
@@ -76,7 +76,7 @@ function Orders() {
     }
 
     const complateOrder = (masaID) => {
-        axios.get(`http://localhost:8081/getCartAdminByOne/${masaID}`)
+        axios.get(`https://cafeapp-y5se.onrender.com/getCartAdminByOne/${masaID}`)
           .then(res => {
             const completedOrders = [];
             
@@ -93,18 +93,18 @@ function Orders() {
             console.log(masaID);
     
             completedOrders.forEach(completedOrder => {
-              axios.post("http://localhost:8081/sendToComplatedOrders", completedOrder)
+              axios.post("https://cafeapp-y5se.onrender.com/sendToComplatedOrders", completedOrder)
                 .then(res => {
                 })
                 .catch(err => console.log(err));
             });
     
-            axios.delete(`http://localhost:8081/silCartAdmin/${masaID}`)
+            axios.delete(`https://cafeapp-y5se.onrender.com/silCartAdmin/${masaID}`)
             .then(res => {
             })
             .catch(err => console.log(err))
 
-            axios.get("http://localhost:8081/getCartAdmin")
+            axios.get("https://cafeapp-y5se.onrender.com/getCartAdmin")
             .then(res => {
               setOrders(res.data.mergedOrders); 
               setOrderPrice(res.data.totalToplamByMasa);
