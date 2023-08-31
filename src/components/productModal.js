@@ -65,7 +65,7 @@ function ProductModal({ product, show, handleClose}) {
         <>
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header className='ürünModal'>
-                    <img className='modalImage img-fluid' src={product.image === null ? ResimYok : `http://localhost:8081/images/` + product.image} />
+                    <img className='modalImage img-fluid' src={product.image === null ? ResimYok : `https://cafeapp-y5se.onrender.com/images/` + product.image} />
                 </Modal.Header>
                 <Modal.Body>
                     <Modal.Title>
