@@ -15,12 +15,12 @@ function ProductModal({ product, show, handleClose}) {
 
     useEffect(() => {
         if (product && product.id) {
-            axios.get(`http://localhost:8081/getLikeNumber/${product.id}`)
+            axios.get(`https://cafeapp-y5se.onrender.com/getLikeNumber/${product.id}`)
                 .then(res => {
                     setNumberLike(res.data[0].likeNumber);
                 })
                 .catch(err => console.log(err));
-            axios.get(`http://localhost:8081/getDislikeNumber/${product.id}`)
+            axios.get(`https://cafeapp-y5se.onrender.com/getDislikeNumber/${product.id}`)
                 .then(res => {
                     setNumberDislike(res.data[0].dislikeNumber);
                 })
@@ -30,7 +30,7 @@ function ProductModal({ product, show, handleClose}) {
 
     const handleLike = () => {
         if (!likeDisabled) {
-            axios.post(`http://localhost:8081/like/${product.id}`)
+            axios.post(`https://cafeapp-y5se.onrender.com/like/${product.id}`)
                 .then(res => {
                     setNumberLike(numberLike + 1);
                     setLikeDisabled(true);
@@ -42,7 +42,7 @@ function ProductModal({ product, show, handleClose}) {
 
     const handleDislike = () => {
         if (!dislikeDisabled) {
-            axios.post(`http://localhost:8081/dislike/${product.id}`)
+            axios.post(`https://cafeapp-y5se.onrender.com/dislike/${product.id}`)
                 .then(res => {
                     setNumberDislike(numberDislike + 1);
                     setLikeDisabled(true);
