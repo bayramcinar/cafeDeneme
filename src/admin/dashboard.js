@@ -10,7 +10,7 @@ function Dashboard() {
   const [dailyEarn, setDealyEarn] = useState("");
 
   useEffect(() => {
-    axios.get("http://localhost:8081/getAllCategoryID")
+    axios.get("https://cafeapp-y5se.onrender.com/getAllCategoryID")
       .then(res => {
         setIDs(res.data.map(item => item.id)); 
       })
@@ -25,7 +25,7 @@ function Dashboard() {
     
     const formattedDate = `${year}-${month}-${day}`;
   
-    axios.get(`http://localhost:8081/getDailyMoney/${formattedDate}`)
+    axios.get(`https://cafeapp-y5se.onrender.com/getDailyMoney/${formattedDate}`)
       .then(res => {
         setDealyEarn(res.data.total);
       })
