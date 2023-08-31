@@ -7,7 +7,7 @@ function Tables() {
   const [tables, setTables] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:8081/getAllTables")
+    axios.get("https://cafeapp-y5se.onrender.com/getAllTables")
       .then(res => {
         setTables(res.data);
       })
