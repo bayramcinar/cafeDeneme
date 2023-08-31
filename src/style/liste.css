@@ -11,7 +11,7 @@
 }
 
 .generalList {
-    max-height: calc(92vh - 122px);
+    max-height: calc(93vh - 122px);
     overflow: auto;
 }
 .ListTitle{
