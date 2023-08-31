@@ -95,7 +95,7 @@ function Cart() {
               <div className='cartProduct'>
                 <div className='row'>
                   <div className='col-4'>
-                    <img className='cartProductImage' src={`http://localhost:8081/images/` + ürün.image} />
+                    <img className='cartProductImage' src={`https://cafeapp-y5se.onrender.com/images/` + ürün.image} />
                   </div>
                   <div className='col-6'>
                     <h5 className='cartProductTitle'>{ürün.isim}</h5>
