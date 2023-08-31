@@ -13,28 +13,28 @@ function Cart() {
   const { masaId } = useParams();
 
   const plus = (name) => {
-    axios.post(`http://localhost:8081/arti/${name}`)
+    axios.post(`https://cafeapp-y5se.onrender.com/arti/${name}`)
       .then(res => {
       })
       .catch(err => console.log(err))
   }
 
   const handleDelete = (siparisId) => {
-    axios.delete(`http://localhost:8081/sil/${siparisId}`)
+    axios.delete(`https://cafeapp-y5se.onrender.com/sil/${siparisId}`)
       .then(res => {
       })
       .catch(err => console.log(err));
   }
 
   const mines = (name) => {
-    axios.post(`http://localhost:8081/eksi/${name}`)
+    axios.post(`https://cafeapp-y5se.onrender.com/eksi/${name}`)
       .then(res => {
       })
       .catch(err => console.log(err))
   }
 
   useEffect(() => { 
-    axios.get(`http://localhost:8081/getCart/${masaId}`)
+    axios.get(`https://cafeapp-y5se.onrender.com/getCart/${masaId}`)
       .then(res => {
         if (res.data === "noProduct") {
           setÜrünler([]);
@@ -51,7 +51,7 @@ function Cart() {
 
 
   const deleteFromCart = (masaID) =>{
-    axios.delete(`http://localhost:8081/silCart/${masaID}`)
+    axios.delete(`https://cafeapp-y5se.onrender.com/silCart/${masaID}`)
       .then(res => {
       })
       .catch(err => console.log(err))
@@ -59,7 +59,7 @@ function Cart() {
 
   const handleSiparisVer = () => {
     const ürünlerWithMasaId = ürünler.map(ürün => ({ ...ürün, masaID: masaId }));
-    axios.post("http://localhost:8081/sendToCartAdmin", ürünlerWithMasaId)
+    axios.post("https://cafeapp-y5se.onrender.com/sendToCartAdmin", ürünlerWithMasaId)
       .then(res => {
       })
       .catch(err => console.log(err));
