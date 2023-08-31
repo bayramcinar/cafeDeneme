@@ -32,7 +32,7 @@ export default function AddProduct({ show, onClose }) {
     }
 
     useEffect(() => {
-        axios.get("http://localhost:8081/getAllCategories")
+        axios.get("https://cafeapp-y5se.onrender.com/getAllCategories")
             .then(res => {
                 setListe(res.data);
             })
@@ -62,13 +62,13 @@ export default function AddProduct({ show, onClose }) {
 
     const save = () => {
         successToast();
-        axios.post("http://localhost:8081/setProduct", productInfo)
+        axios.post("https://cafeapp-y5se.onrender.com/setProduct", productInfo)
             .then(res => {
                 const formData = new FormData();
                 console.log(file);
                 formData.append("image", file);
                 console.log(res.data);
-                axios.post(`http://localhost:8081/uploadProductImg/${res.data.ProductId}`, formData)
+                axios.post(`https://cafeapp-y5se.onrender.com/uploadProductImg/${res.data.ProductId}`, formData)
                     .then(uploadRes => {
                         console.log(uploadRes.data);
                     })
