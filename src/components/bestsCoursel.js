@@ -14,7 +14,7 @@ function BestsCoursel({ isLoading, images }) {
                         ) : (
                             <img
                                 className="d-block w-100"
-                                    src={`http://localhost:8081/images/${image.image}`}
+                                    src={`https://cafeapp-y5se.onrender.com/images/${image.image}`}
                                 alt={`Image ${index + 1}`}
                             />
                         )}
