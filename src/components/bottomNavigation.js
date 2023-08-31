@@ -14,7 +14,7 @@ export default function BottomBar() {;
   const { masaId } = useParams();
   
   React.useEffect(() => {
-    axios.get(`http://localhost:8081/getTotalCart/${masaId}`)
+    axios.get(`https://cafeapp-y5se.onrender.com/getTotalCart/${masaId}`)
       .then(res => {
         setNumber(res.data.totalItems);
       })
