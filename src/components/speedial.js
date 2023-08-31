@@ -13,7 +13,7 @@ export default function SpeedMenu() {
   const { masaId } = useParams();
 
   useEffect(() => {
-    axios.get("http://localhost:8081/getCategoryNames")
+    axios.get("https://cafeapp-y5se.onrender.com/getCategoryNames")
       .then(res => {
         setKategori(res.data);
       })
