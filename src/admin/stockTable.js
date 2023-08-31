@@ -12,7 +12,7 @@ export default function StockTable({ show, onClose }) {
   const [editedStockValue, setEditedStockValue] = useState('');
 
   useEffect(() => {
-    axios.get("http://localhost:8081/getAllProducts")
+    axios.get("https://cafeapp-y5se.onrender.com/getAllProducts")
       .then(res => {
         const updatedRows = res.data.map(async product => {
           const stockResponse = await axios.get(`http://localhost:8081/getStock/${product.id}`);
@@ -44,7 +44,7 @@ export default function StockTable({ show, onClose }) {
         return;
       }
   
-      axios.post(`http://localhost:8081/updateStock/${id}`, { value: newStockValue })
+      axios.post(`https://cafeapp-y5se.onrender.com/updateStock/${id}`, { value: newStockValue })
         .then(response => {
           console.log(response.data);
           const updatedRows = rows.map(row =>
