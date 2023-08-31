@@ -11,7 +11,7 @@ export default function DeleteProduct({ show, onClose }) {
   const [editedStockValue, setEditedStockValue] = useState('');
 
   useEffect(() => {
-    axios.get("http://localhost:8081/getAllProducts")
+    axios.get("https://cafeapp-y5se.onrender.com/getAllProducts")
       .then(res => {
         setRows(res.data);
       })
@@ -21,7 +21,7 @@ export default function DeleteProduct({ show, onClose }) {
 
 
   const handleDeleteClick = (id) => {
-    axios.delete(`http://localhost:8081/deleteProduct/${id}`)
+    axios.delete(`https://cafeapp-y5se.onrender.com/deleteProduct/${id}`)
     .then(response => {
         console.log(response.data);
     })
