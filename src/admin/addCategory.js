@@ -45,7 +45,7 @@ export default function AddCategory({ show, onClose }) {
     const save1 = () => {
         successToast();
         console.log(file);
-        axios.post("http://localhost:8081/setCategory", categoryInfo)
+        axios.post("https://cafeapp-y5se.onrender.com/setCategory", categoryInfo)
         .then(res => {
             const formData = new FormData();
             formData.append("image", file);
