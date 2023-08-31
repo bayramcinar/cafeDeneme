@@ -89,4 +89,7 @@ padding: 10px;
         margin-left: auto;
         margin-right: auto; 
     }
+    .col-lg-4{
+        width: 90% !important;
+    }
 }
