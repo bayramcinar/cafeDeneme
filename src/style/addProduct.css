@@ -1,0 +1,21 @@
+.saveButton{
+    width: 30px !important;
+    margin-left: 43% !important;
+}
+
+@media screen and (max-width: 768px){
+    .center{
+        margin-left: 18px;
+    }
+    .saveButton{
+        width: 30px !important;
+        margin-left: 30% !important;
+    }
+    .Toastify__toast-container{
+        width: 260px;
+        position: absolute;
+        top: 8px;
+        left: 145px ;
+        font-size: 13px;
+    }
+}

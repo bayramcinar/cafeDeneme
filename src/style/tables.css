@@ -1,0 +1,31 @@
+.tableBox{
+    width: 100px;
+    height: 70px;
+    background-color: #352F44;
+    border-radius: 10px;
+}
+.tableIcon{
+    width: 40px;
+}
+.tableNumber{
+    color: #fff;
+    margin-left: 12px;
+    margin-top: 5px;
+} 
+.genelBox{
+    padding: 15px;
+}
+.satir{
+    justify-content: center;
+}
+.titleTable{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+}
+.bos{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} 

@@ -1,0 +1,41 @@
+.bg-nav{
+    background-color: #C51605 !important;
+    padding: 0 !important;
+}
+.navbar-brand{
+    color: #fff;
+    margin-left: auto;
+    margin-right: 0;
+    display: flex;
+    padding: 8px;
+}
+.navbarImg{
+    margin-right: auto;
+    margin-left: 25px;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+}
+.title{
+    margin-top: 10px;
+    margin-left: 8px;
+    font-size: 20px;
+}
+.masaID{
+    display: flex;
+    background-color: aliceblue;
+    color: #C51605;
+    margin-left: auto;
+    margin-bottom: 0;
+    width: 60px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+}
+.textMasa{
+    margin-left: 4px;
+    margin-top: 4px;
+}
+.container-fluid{
+    padding-left: 30px;
+}

@@ -1,0 +1,15 @@
+.menüIcons svg{
+    color: rgb(68, 119, 206);
+    margin-left: 18px;
+}
+.textOfDial{
+    margin-bottom: 0 ;
+}
+.speedIcon{
+    width: 38px;
+    margin-left: 12px;
+    color: blue !important;
+}
+.speedIcon:nth-child(even){
+    margin-right: 9px;
+}

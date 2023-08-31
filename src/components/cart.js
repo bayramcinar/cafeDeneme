@@ -1,0 +1,151 @@
+import React, { useState, useEffect } from 'react';
+import "../style/cart.css"
+import Navbar from './navbar'
+import BottomBar from './bottomNavigation'
+import axios from 'axios';
+import DeleteIcon from '@mui/icons-material/Delete';
+import Modal from 'react-bootstrap/Modal';
+import { Link,useParams } from 'react-router-dom';
+
+function Cart() {
+  const [ürünler, setÜrünler] = useState([]);
+  const [toplamFiyat, setToplamFiyat] = useState(0); 
+  const { masaId } = useParams();
+
+  const plus = (name) => {
+    axios.post(`http://localhost:8081/arti/${name}`)
+      .then(res => {
+      })
+      .catch(err => console.log(err))
+  }
+
+  const handleDelete = (siparisId) => {
+    axios.delete(`http://localhost:8081/sil/${siparisId}`)
+      .then(res => {
+      })
+      .catch(err => console.log(err));
+  }
+
+  const mines = (name) => {
+    axios.post(`http://localhost:8081/eksi/${name}`)
+      .then(res => {
+      })
+      .catch(err => console.log(err))
+  }
+
+  useEffect(() => { 
+    axios.get(`http://localhost:8081/getCart/${masaId}`)
+      .then(res => {
+        if (res.data === "noProduct") {
+          setÜrünler([]);
+          setToplamFiyat(0);  
+        } else {
+          setÜrünler(res.data);
+          const total = res.data.reduce((total, ürün) => total + (ürün.fiyat * ürün.adet), 0);
+          setToplamFiyat(total);
+        }
+      })
+      .catch(err => console.log(err));
+  });
+  
+
+
+  const deleteFromCart = (masaID) =>{
+    axios.delete(`http://localhost:8081/silCart/${masaID}`)
+      .then(res => {
+      })
+      .catch(err => console.log(err))
+  }
+
+  const handleSiparisVer = () => {
+    const ürünlerWithMasaId = ürünler.map(ürün => ({ ...ürün, masaID: masaId }));
+    axios.post("http://localhost:8081/sendToCartAdmin", ürünlerWithMasaId)
+      .then(res => {
+      })
+      .catch(err => console.log(err));
+    deleteFromCart(masaId);
+  }
+  
+  const [showM, setShow] = useState(false);
+
+  const handleClose = () => {
+    setShow(false);
+    setÜrünler([]);
+    setToplamFiyat(0);
+  }
+  const handleShow = () => setShow(true);
+
+
+  const toplamAdet = ürünler.reduce((toplam, ürün) => toplam + ürün.adet, 0);
+  return (
+    <div>
+      <Navbar/> 
+      <div className='cartBlur'>
+      <div className='cartTitle'>
+        <h1 className='titleText'>SEPET</h1>
+      </div>
+      <div className='infoCart'>
+        <h5 className='infoText'>Sepetim</h5>
+        <div className='btn infoAdet btn-warning'>{toplamAdet} adet</div>
+      </div>
+      <div className='cartProducts'>
+        {ürünler.map((ürün, index) => (
+          (ürün.adet > 0) && (
+            <div className='generalInfos' key={index}>
+              <div className='cartProduct'>
+                <div className='row'>
+                  <div className='col-4'>
+                    <img className='cartProductImage' src={`http://localhost:8081/images/` + ürün.image} />
+                  </div>
+                  <div className='col-6'>
+                    <h5 className='cartProductTitle'>{ürün.isim}</h5>
+                    <h4 className='cartProductPrice'>{(ürün.fiyat * ürün.adet).toFixed(2)} TL</h4>
+                  </div>
+                  <div className='col-2 options'>
+                    <h5 onClick={() => plus(ürün.id)}>+</h5>
+                    <h5>{ürün.adet}</h5>
+                    {ürün.adet === 1 ? (
+                      <h5><DeleteIcon onClick={() => handleDelete(ürün.id)}/> </h5>  
+
+                    ) : (
+                      <h5 onClick={() => mines(ürün.id)}>-</h5>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </div>
+          )
+        ))}
+      </div>
+      <div className='totalPrice'>
+        <div className='cartBottom row'>
+          <div className='price col-4'>
+            <h4>Toplam</h4>
+            <h5>{toplamFiyat.toFixed(2)} TL</h5>
+          </div>
+          <div className='col-8'>
+          <button onClick={() => {
+            handleShow();
+            handleSiparisVer();
+          }} className='btn siparisButton btn-warning'>
+            Sipariş Ver
+          </button>
+          </div>
+        </div>
+      </div>
+      </div> 
+
+      <BottomBar/>
+      <>
+            <Modal show={showM} onHide={handleClose}>
+                <Modal.Body>
+                    <h4>Siparişiniz verildi. Ortalama sipariş teslim süremiz 15 dakikadır.</h4>
+                </Modal.Body>
+            </Modal>
+        </>
+    </div>
+    
+  )
+}
+
+export default Cart;

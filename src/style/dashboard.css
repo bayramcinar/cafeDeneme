@@ -1,0 +1,92 @@
+
+.addProductArea{
+    width: 200px;
+    height: 70px;
+    background-color: #141E46;
+    margin: 30px;
+    border-radius: 10px;
+}
+.addCategoryArea{
+    width: 200px;
+    height: 70px;
+    background-color: #FF6969;
+    margin: 30px;
+    border-radius: 10px;
+}
+.addStockArea{
+    width: 200px;
+    height: 70px;
+    background-color: #982176;
+    margin: 30px;
+    border-radius: 10px;
+}
+.addTableArea{
+    width: 200px;
+    height: 70px;
+    background-color: #1450A3;
+    margin: 30px;
+    border-radius: 10px;
+}
+.deleteArea{
+    width: 200px;
+    height: 70px;
+    background-color: #147e48;
+    margin: 30px;
+    border-radius: 10px;
+}
+.text,
+.image{
+    margin-top: 20px;
+    color: #fff;
+}
+.text{
+    margin-left: 15px;
+}
+.addProductArea{
+    cursor: pointer;
+}
+.generalSettings{
+    justify-content: center;
+}
+.dashboardTitle{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.dashboardNav{
+    background-color: #1450A3 !important;
+    color: #fff;
+}
+.dasboardNavTitle{
+margin-left: auto;
+margin-right: auto;
+padding: 10px;
+}
+.chartOutside{
+    margin: 15px;
+    background: aliceblue;
+    border-radius: 10px;
+}
+.chartInside{
+    padding: 15px;
+}
+.col-lg-4{
+    width: 30.3% !important;
+}
+.stockTitle{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: underline;
+}
+@media screen and (max-width: 768px){
+    .addProductArea,
+    .addCategoryArea,
+    .addStockArea,
+    .addTableArea,
+    .deleteArea{
+        width: 300px!important;
+        margin-left: auto;
+        margin-right: auto; 
+    }
+}

@@ -1,0 +1,77 @@
+.orderContainer{
+    background-color: aliceblue;
+    border-radius: 15px;
+    padding: 8px;
+    margin-right: 10px;
+}
+.masaNumarasi{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.deleteButton{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.orders{
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.newOrdersArea,
+.complatedOrdersArea{
+    max-height: 500px;
+    overflow: auto;
+    scrollbar-width: thin; 
+    scrollbar-color: #888 #f0f0f0; 
+}
+.orderColTitle{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.newOrdersArea::-webkit-scrollbar,
+.complatedOrdersArea::-webkit-scrollbar {
+    width: 5px; 
+}
+
+.newOrdersArea::-webkit-scrollbar-track,
+.complatedOrdersArea::-webkit-scrollbar-track {
+    background: #f0f0f0; 
+}
+
+.newOrdersArea::-webkit-scrollbar-thumb,
+.complatedOrdersArea::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 5px; 
+}
+.siparisDate{
+    background-color: #352F44;
+    color: #fff;
+    padding: 3px;
+    font-size: 15px;
+    width: 240px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.onayDate{
+    background-color: #352F44;
+    color: #fff;
+    padding: 3px;
+    font-size: 15px;
+    width: 267px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.complated{
+    margin-left: 5px;
+    background-color: green;
+    border: 1px solid green;
+}
+.orderColTitle{
+    font-size: 30px;
+}
