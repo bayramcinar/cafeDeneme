@@ -77,14 +77,14 @@ function Cart() {
 
 
   const toplamAdet = ürünler.reduce((toplam, ürün) => toplam + ürün.adet, 0);
-  return (
+    return (
     <div>
       <Navbar/> 
       <div className='cartBlur'>
       <div className='cartTitle'>
-        <h1 className='titleText'>SEPET</h1>
+        <h1 className='titleText animate__animated animate__fadeInDown'>SEPET</h1>
       </div>
-      <div className='infoCart'>
+      <div className='infoCart animate__animated animate__fadeInLeft'>
         <h5 className='infoText'>Sepetim</h5>
         <div className='btn infoAdet btn-warning'>{toplamAdet} adet</div>
       </div>
@@ -92,7 +92,7 @@ function Cart() {
         {ürünler.map((ürün, index) => (
           (ürün.adet > 0) && (
             <div className='generalInfos' key={index}>
-              <div className='cartProduct'>
+              <div className='cartProduct animate__animated animate__zoomIn'>
                 <div className='row'>
                   <div className='col-4'>
                     <img className='cartProductImage' src={`https://cafeapp-y5se.onrender.com/images/` + ürün.image} />
@@ -119,7 +119,7 @@ function Cart() {
       </div>
       <div className='totalPrice'>
         <div className='cartBottom row'>
-          <div className='price col-4'>
+          <div className='price col-4  animate__animated animate__flipInX'>
             <h4>Toplam</h4>
             <h5>{toplamFiyat.toFixed(2)} TL</h5>
           </div>
@@ -127,7 +127,7 @@ function Cart() {
           <button onClick={() => {
             handleShow();
             handleSiparisVer();
-          }} className='btn siparisButton btn-warning'>
+          }} className='btn siparisButton btn-warning animate__animated animate__fadeInRight'>
             Sipariş Ver
           </button>
           </div>
