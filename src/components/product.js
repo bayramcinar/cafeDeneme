@@ -96,7 +96,7 @@ function Product({productID, productImage, productTitle, productPrice, productSt
                         <CardMedia
                             component="img"
                             height="80"
-                            image={productImage === null ? ResimYok : `http://localhost:8081/images/` + productImage}
+                            image={productImage === null ? ResimYok : `https://cafeapp-y5se.onrender.com/images/` + productImage}
                             style={stock===0 || noStock ? { filter: 'grayscale(100%)' } : {}}
                             className='animate__animated animate__heartBeat'
                         />
