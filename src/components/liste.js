@@ -57,7 +57,7 @@ function Liste({categoryID}) {
 
     const handleProductClick = async (productInfo) => {
         const productStock = await findStock(productInfo.id);
-        if (productStock !== "0") {
+        if (productStock > 0) {
             setSelectedProduct(productInfo);
             setModalShow(true);
         }
