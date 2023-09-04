@@ -11,6 +11,7 @@ function Cart() {
   const [ürünler, setÜrünler] = useState([]);
   const [toplamFiyat, setToplamFiyat] = useState(0); 
   const { masaId } = useParams();
+  const [active,setActive] = useState(false);
 
   const plus = (name) => {
     axios.post(`https://cafeapp-y5se.onrender.com/arti/${name}`)
@@ -48,7 +49,14 @@ function Cart() {
       .catch(err => console.log(err));
   });
   
-
+  useEffect(() => { 
+    axios.get(`https://cafeapp-y5se.onrender.com/getTableActive/${masaId}`)
+      .then(res => {
+        setActive(res.data[0].isActive);
+        console.log(active);
+      })
+      .catch(err => console.log(err));
+  },[active]);
 
   const deleteFromCart = (masaID) =>{
     axios.delete(`https://cafeapp-y5se.onrender.com/silCart/${masaID}`)
@@ -56,28 +64,40 @@ function Cart() {
       })
       .catch(err => console.log(err))
   }
+    
+  const [showM, setShowM] = useState(false);
 
-  const handleSiparisVer = () => {
-    const ürünlerWithMasaId = ürünler.map(ürün => ({ ...ürün, masaID: masaId }));
-    axios.post("https://cafeapp-y5se.onrender.com/sendToCartAdmin", ürünlerWithMasaId)
-      .then(res => {
-      })
-      .catch(err => console.log(err));
-    deleteFromCart(masaId);
-  }
-  
-  const [showM, setShow] = useState(false);
-
-  const handleClose = () => {
-    setShow(false);
+  const handleCloseM = () => {
+    setShowM(false);
     setÜrünler([]);
     setToplamFiyat(0);
   }
-  const handleShow = () => setShow(true);
+  const handleShow = () => setShowM(true);
+
+  const [showA, setShowA] = useState(false);
+
+  const handleCloseA = () => {
+    setShowA(false);
+  }
+  const handleShowA = () => setShowA(true);
+
+  const handleSiparisVer = () => {
+    const ürünlerWithMasaId = ürünler.map(ürün => ({ ...ürün, masaID: masaId }));
+    if(active){
+      axios.post("https://cafeapp-y5se.onrender.com/sendToCartAdmin", ürünlerWithMasaId)
+      .then(res => {
+      })
+      .catch(err => console.log(err));
+      handleShow(true);
+      deleteFromCart(masaId);
+    }else{
+      handleShowA(true);
+    }
+  }
 
 
   const toplamAdet = ürünler.reduce((toplam, ürün) => toplam + ürün.adet, 0);
-    return (
+  return (
     <div>
       <Navbar/> 
       <div className='cartBlur'>
@@ -125,7 +145,6 @@ function Cart() {
           </div>
           <div className='col-8'>
           <button onClick={() => {
-            handleShow();
             handleSiparisVer();
           }} className='btn siparisButton btn-warning animate__animated animate__fadeInRight'>
             Sipariş Ver
@@ -137,9 +156,16 @@ function Cart() {
 
       <BottomBar/>
       <>
-            <Modal show={showM} onHide={handleClose}>
+            <Modal show={showM} onHide={handleCloseM}>
                 <Modal.Body>
                     <h4>Siparişiniz verildi. Ortalama sipariş teslim süremiz 15 dakikadır.</h4>
+                </Modal.Body>
+            </Modal>
+        </>
+        <>
+            <Modal show={showA} onHide={handleCloseA}>
+                <Modal.Body>
+                    <h4>Masanız Sipariş vermek için aktif değildir lütfen masanızı aktif ediniz !</h4>
                 </Modal.Body>
             </Modal>
         </>
