@@ -4,6 +4,7 @@ import Options from './options';
 import Orders from './orders';
 import StockChart from './stockChart';
 import axios from 'axios';
+import Tables from './tables';
 
 function Dashboard() {
   const [ids, setIDs] = useState([]);
@@ -51,6 +52,7 @@ function Dashboard() {
           ))}
         </div>
       </div>
+                <Tables/>
       <Options/>
       <div className='container'>
         <h1 className='dashboardTitle'>Orders</h1>
