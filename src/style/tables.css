@@ -1,5 +1,5 @@
 .tableBox{
-    width: 100px;
+    width: 160px;
     height: 70px;
     background-color: #352F44;
     border-radius: 10px;
@@ -29,3 +29,8 @@
     align-items: center;
     justify-content: center;
 } 
+@media screen and (max-width: 768px){
+    .satir>*{
+        width: 35% !important;
+    } 
+}
