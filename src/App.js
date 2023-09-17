@@ -12,7 +12,7 @@ function App() {
   const [kategori, setKategori] = useState([]);
 
   useEffect(() => {
-    axios.get("https://demobackend-j4un.onrender.com/getCategoryNames")
+    axios.get("https://serverdeneme-p4tc.onrender.com/getCategoryNames")
       .then(res => {
         setKategori(res.data);
       })
