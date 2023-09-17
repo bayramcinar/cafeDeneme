@@ -12,10 +12,10 @@ export default function StockTable({ show, onClose }) {
   const [editedStockValue, setEditedStockValue] = useState('');
 
   useEffect(() => {
-    axios.get("https://demobackend-j4un.onrender.com/getAllProducts")
+    axios.get("https://serverdeneme-p4tc.onrender.com/getAllProducts")
       .then(res => {
         const updatedRows = res.data.map(async product => {
-          const stockResponse = await axios.get(`https://demobackend-j4un.onrender.com/getStock/${product.id}`);
+          const stockResponse = await axios.get(`https://serverdeneme-p4tc.onrender.com/getStock/${product.id}`);
           const stockValue = stockResponse.data && stockResponse.data.length > 0
             ? stockResponse.data[0].stok
             : "0";
@@ -44,7 +44,7 @@ export default function StockTable({ show, onClose }) {
         return;
       }
   
-      axios.post(`https://demobackend-j4un.onrender.com/updateStock/${id}`, { value: newStockValue })
+      axios.post(`https://serverdeneme-p4tc.onrender.com/updateStock/${id}`, { value: newStockValue })
         .then(response => {
           console.log(response.data);
           const updatedRows = rows.map(row =>
