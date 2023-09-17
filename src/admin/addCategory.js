@@ -45,13 +45,13 @@ export default function AddCategory({ show, onClose }) {
     const save1 = () => {
         successToast();
         console.log(file);
-        axios.post("https://demobackend-j4un.onrender.com/setCategory", categoryInfo)
+        axios.post("https://serverdeneme-p4tc.onrender.com/setCategory", categoryInfo)
         .then(res => {
             const formData = new FormData();
             formData.append("image", file);
             console.log(res.data);
     
-            axios.post(`https://demobackend-j4un.onrender.com/uploadCategoryImg/${res.data.insertId}`, formData)
+            axios.post(`https://serverdeneme-p4tc.onrender.com/uploadCategoryImg/${res.data.insertId}`, formData)
                 .then(uploadRes => {
                     console.log(uploadRes.data);
                 })
