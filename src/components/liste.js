@@ -23,9 +23,9 @@ function Liste({categoryID}) {
 
         const fetchData = async () => {
             try {
-                const productsResponse = await axios.get(`https://cafeapp-y5se.onrender.com/getProducts/${categoryID}`);
-                const categoryResponse = await axios.get(`https://cafeapp-y5se.onrender.com/getCategoryName/${categoryID}`);
-                const imagesResponse = await axios.get(`https://cafeapp-y5se.onrender.com/getProductsImg/${categoryID}`);
+                const productsResponse = await axios.get(`https://demobackend-j4un.onrender.com/getProducts/${categoryID}`);
+                const categoryResponse = await axios.get(`https://demobackend-j4un.onrender.com/getCategoryName/${categoryID}`);
+                const imagesResponse = await axios.get(`https://demobackend-j4un.onrender.com/getProductsImg/${categoryID}`);
 
                 const fetchedProducts = productsResponse.data;
                 const fetchedTitle = categoryResponse.data[0].kategoriName;
@@ -65,7 +65,7 @@ function Liste({categoryID}) {
 
     const findStock = async (id) => {
         try {
-            const response = await axios.get(`https://cafeapp-y5se.onrender.com/getStock/${id}`);
+            const response = await axios.get(`https://demobackend-j4un.onrender.com/getStock/${id}`);
             if (response.data && response.data.length > 0) {
                 return response.data[0].stok;
             } else {
@@ -79,7 +79,7 @@ function Liste({categoryID}) {
 
     const findImg = async (id) => {
         try {
-            const response = await axios.get(`https://cafeapp-y5se.onrender.com/getImage/${id}`);
+            const response = await axios.get(`https://demobackend-j4un.onrender.com/getImage/${id}`);
             if (response.data && response.data.length > 0) {
                 return response.data[0].image;
             } else if (response.data[0].Message === "Image not found.") {
