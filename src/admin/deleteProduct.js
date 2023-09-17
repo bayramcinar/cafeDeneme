@@ -11,7 +11,7 @@ export default function DeleteProduct({ show, onClose }) {
   const [editedStockValue, setEditedStockValue] = useState('');
 
   useEffect(() => {
-    axios.get("https://demobackend-j4un.onrender.com/getAllProducts")
+    axios.get("https://serverdeneme-p4tc.onrender.com/getAllProducts")
       .then(res => {
         setRows(res.data);
       })
@@ -21,7 +21,7 @@ export default function DeleteProduct({ show, onClose }) {
 
 
   const handleDeleteClick = (id) => {
-    axios.delete(`https://demobackend-j4un.onrender.com/deleteProduct/${id}`)
+    axios.delete(`https://serverdeneme-p4tc.onrender.com/deleteProduct/${id}`)
     .then(response => {
         console.log(response.data);
     })
