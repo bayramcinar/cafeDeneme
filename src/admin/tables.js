@@ -36,7 +36,7 @@ const errorToast = () => {
 } 
 
   useEffect(() => {
-    axios.get("https://demobackend-j4un.onrender.com/getAllTables")
+    axios.get("https://serverdeneme-p4tc.onrender.com/getAllTables")
       .then(res => {
         const tableDataWithStatus = res.data.map(tableData => ({
           ...tableData,
@@ -48,7 +48,7 @@ const errorToast = () => {
   });
 
   const setActive = (masaID) =>{
-    axios.post(`https://demobackend-j4un.onrender.com/setActive/${masaID}`)
+    axios.post(`https://serverdeneme-p4tc.onrender.com/setActive/${masaID}`)
       .then(res => {
         successToast();
       })
@@ -56,7 +56,7 @@ const errorToast = () => {
   }
 
   const setDeactive = (masaID) =>{
-    axios.post(`https://demobackend-j4un.onrender.com/setDeactive/${masaID}`)
+    axios.post(`https://serverdeneme-p4tc.onrender.com/setDeactive/${masaID}`)
       .then(res => {
         errorToast();
       })
