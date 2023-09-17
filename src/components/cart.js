@@ -14,28 +14,28 @@ function Cart() {
   const [active,setActive] = useState(false);
 
   const plus = (name) => {
-    axios.post(`https://demobackend-j4un.onrender.com/arti/${name}`)
+    axios.post(`https://serverdeneme-p4tc.onrender.com/arti/${name}`)
       .then(res => {
       })
       .catch(err => console.log(err))
   }
 
   const handleDelete = (siparisId) => {
-    axios.delete(`https://demobackend-j4un.onrender.com/sil/${siparisId}`)
+    axios.delete(`https://serverdeneme-p4tc.onrender.com/sil/${siparisId}`)
       .then(res => {
       })
       .catch(err => console.log(err));
   }
 
   const mines = (name) => {
-    axios.post(`https://demobackend-j4un.onrender.com/eksi/${name}`)
+    axios.post(`https://serverdeneme-p4tc.onrender.com/eksi/${name}`)
       .then(res => {
       })
       .catch(err => console.log(err))
   }
 
   useEffect(() => { 
-    axios.get(`https://demobackend-j4un.onrender.com/getCart/${masaId}`)
+    axios.get(`https://serverdeneme-p4tc.onrender.com/getCart/${masaId}`)
       .then(res => {
         if (res.data === "noProduct") {
           setÜrünler([]);
@@ -50,7 +50,7 @@ function Cart() {
   });
   
   useEffect(() => { 
-    axios.get(`https://demobackend-j4un.onrender.com/getTableActive/${masaId}`)
+    axios.get(`https://serverdeneme-p4tc.onrender.com/getTableActive/${masaId}`)
       .then(res => {
         setActive(res.data[0].isActive);
         console.log(active);
@@ -59,7 +59,7 @@ function Cart() {
   },[active]);
 
   const deleteFromCart = (masaID) =>{
-    axios.delete(`https://demobackend-j4un.onrender.com/silCart/${masaID}`)
+    axios.delete(`https://serverdeneme-p4tc.onrender.com/silCart/${masaID}`)
       .then(res => {
       })
       .catch(err => console.log(err))
@@ -84,7 +84,7 @@ function Cart() {
   const handleSiparisVer = () => {
     const ürünlerWithMasaId = ürünler.map(ürün => ({ ...ürün, masaID: masaId }));
     if(active){
-      axios.post("https://demobackend-j4un.onrender.com/sendToCartAdmin", ürünlerWithMasaId)
+      axios.post("https://serverdeneme-p4tc.onrender.com/sendToCartAdmin", ürünlerWithMasaId)
       .then(res => {
       })
       .catch(err => console.log(err));
@@ -115,7 +115,7 @@ function Cart() {
               <div className='cartProduct animate__animated animate__zoomIn'>
                 <div className='row'>
                   <div className='col-4'>
-                    <img className='cartProductImage' src={`https://demobackend-j4un.onrender.com/images/` + ürün.image} />
+                    <img className='cartProductImage' src={`https://serverdeneme-p4tc.onrender.com/images/` + ürün.image} />
                   </div>
                   <div className='col-6'>
                     <h5 className='cartProductTitle'>{ürün.isim}</h5>
