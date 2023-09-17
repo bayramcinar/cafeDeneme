@@ -37,7 +37,7 @@ export default function AddTable({ show, onClose }) {
 
     const save = () => {
         successToast();
-        axios.post("https://demobackend-j4un.onrender.com/setTable",tableInfo)
+        axios.post("https://serverdeneme-p4tc.onrender.com/setTable",tableInfo)
         .then(res => {
             console.log(res.data);
         })
