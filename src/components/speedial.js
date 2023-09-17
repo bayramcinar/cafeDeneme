@@ -13,7 +13,7 @@ export default function SpeedMenu() {
   const { masaId } = useParams();
 
   useEffect(() => {
-    axios.get("https://demobackend-j4un.onrender.com/getCategoryNames")
+    axios.get("https://serverdeneme-p4tc.onrender.com/getCategoryNames")
       .then(res => {
         setKategori(res.data);
       })
@@ -23,7 +23,7 @@ export default function SpeedMenu() {
   const actions = kategori.map((kategoriItem) => {
     const kategoriAdi = kategoriItem.kategoriName.toLowerCase().replace(/\s+/g, '-');
     return {
-      icon: <img className='speedIcon' style={{ color: "blue" }} src={`https://demobackend-j4un.onrender.com/images/` + kategoriItem.icon} alt={kategoriItem.kategoriName}></img>,
+      icon: <img className='speedIcon' style={{ color: "blue" }} src={`https://serverdeneme-p4tc.onrender.com/images/` + kategoriItem.icon} alt={kategoriItem.kategoriName}></img>,
       name: kategoriItem.kategoriName,
       link: `/masa/${masaId}/${kategoriAdi}`
     };
