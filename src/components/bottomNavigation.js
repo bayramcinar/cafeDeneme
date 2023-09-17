@@ -14,7 +14,7 @@ export default function BottomBar() {;
   const { masaId } = useParams();
   
   React.useEffect(() => {
-    axios.get(`https://demobackend-j4un.onrender.com/getTotalCart/${masaId}`)
+    axios.get(`https://serverdeneme-p4tc.onrender.com/getTotalCart/${masaId}`)
       .then(res => {
         setNumber(res.data.totalItems);
       })
