@@ -11,7 +11,7 @@ export default function DeleteCategory({ show, onClose }) {
   const [editedStockValue, setEditedStockValue] = useState('');
 
   useEffect(() => {
-    axios.get("https://cafeapp-y5se.onrender.com/getAllCategories")
+    axios.get("https://demobackend-j4un.onrender.com/getAllCategories")
       .then(res => {
         setRows(res.data);
       })
@@ -32,7 +32,7 @@ export default function DeleteCategory({ show, onClose }) {
 }  
 
   const handleDeleteClick = (id) => {
-    axios.delete(`https://cafeapp-y5se.onrender.com/deleteCategory/${id}`)
+    axios.delete(`https://demobackend-j4un.onrender.com/deleteCategory/${id}`)
       .then(res => {
         console.log(res.data);
       })
