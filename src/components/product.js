@@ -54,7 +54,7 @@ function Product({productID, productImage, productTitle, productPrice, productSt
     const addCart = () => {
         if (stock > 0) {  
             successToast();
-            axios.post("https://demobackend-j4un.onrender.com/sendToCart", values)
+            axios.post("https://serverdeneme-p4tc.onrender.com/sendToCart", values)
                 .then(res => {
                 })
                 .catch(err => console.log(err));
@@ -96,7 +96,7 @@ function Product({productID, productImage, productTitle, productPrice, productSt
                         <CardMedia
                             component="img"
                             height="80"
-                            image={productImage === null ? ResimYok : `https://demobackend-j4un.onrender.com/images/` + productImage}
+                            image={productImage === null ? ResimYok : `https://serverdeneme-p4tc.onrender.com/images/` + productImage}
                             style={stock===0 || noStock ? { filter: 'grayscale(100%)' } : {}}
                             className='animate__animated animate__heartBeat'
                         />
