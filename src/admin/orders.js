@@ -29,7 +29,7 @@ function Orders() {
 
 
     useEffect(() => { 
-        axios.get("https://demobackend-j4un.onrender.com/getCartAdmin")
+        axios.get("https://serverdeneme-p4tc.onrender.com/getCartAdmin")
           .then(res => {
             setOrders(res.data.mergedOrders); 
             setOrderPrice(res.data.totalToplamByMasa);
@@ -38,7 +38,7 @@ function Orders() {
     },[orders]);  
 
     useEffect(() => { 
-        axios.get("https://demobackend-j4un.onrender.com/getCartAdminComplated")
+        axios.get("https://serverdeneme-p4tc.onrender.com/getCartAdminComplated")
           .then(res => {
             setOrdersComplated(res.data.mergedOrders); 
             setOrderPriceComplated(res.data.totalToplamByMasa);
@@ -48,11 +48,11 @@ function Orders() {
 
       
     const deleteTableOrder = (masaID) =>{
-        axios.delete(`https://demobackend-j4un.onrender.com/silCartAdmin/${masaID}`)
+        axios.delete(`https://serverdeneme-p4tc.onrender.com/silCartAdmin/${masaID}`)
         .then(res => {
         })
         .catch(err => console.log(err))
-        axios.get("https://demobackend-j4un.onrender.com/getCartAdmin")
+        axios.get("https://serverdeneme-p4tc.onrender.com/getCartAdmin")
             .then(res => {
               setOrders(res.data.mergedOrders); 
               setOrderPrice(res.data.totalToplamByMasa);
@@ -62,11 +62,11 @@ function Orders() {
     }
 
     const deleteComplatedTableOrder = (masaID) =>{
-        axios.delete(`https://demobackend-j4un.onrender.com/silCartAdminComplated/${masaID}`)
+        axios.delete(`https://serverdeneme-p4tc.onrender.com/silCartAdminComplated/${masaID}`)
         .then(res => {
         })
         .catch(err => console.log(err))
-        axios.get("https://demobackend-j4un.onrender.com/getCartAdminComplated")
+        axios.get("https://serverdeneme-p4tc.onrender.com/getCartAdminComplated")
             .then(res => {
               setOrdersComplated(res.data.mergedOrders); 
               setOrderPriceComplated(res.data.totalToplamByMasa);
@@ -76,7 +76,7 @@ function Orders() {
     }
 
     const complateOrder = (masaID) => {
-        axios.get(`https://demobackend-j4un.onrender.com/getCartAdminByOne/${masaID}`)
+        axios.get(`https://serverdeneme-p4tc.onrender.com/getCartAdminByOne/${masaID}`)
           .then(res => {
             const completedOrders = [];
             
@@ -93,18 +93,18 @@ function Orders() {
             console.log(masaID);
     
             completedOrders.forEach(completedOrder => {
-              axios.post("https://demobackend-j4un.onrender.com/sendToComplatedOrders", completedOrder)
+              axios.post("https://serverdeneme-p4tc.onrender.com/sendToComplatedOrders", completedOrder)
                 .then(res => {
                 })
                 .catch(err => console.log(err));
             });
     
-            axios.delete(`https://demobackend-j4un.onrender.com/silCartAdmin/${masaID}`)
+            axios.delete(`https://serverdeneme-p4tc.onrender.com/silCartAdmin/${masaID}`)
             .then(res => {
             })
             .catch(err => console.log(err))
 
-            axios.get("https://demobackend-j4un.onrender.com/getCartAdmin")
+            axios.get("https://serverdeneme-p4tc.onrender.com/getCartAdmin")
             .then(res => {
               setOrders(res.data.mergedOrders); 
               setOrderPrice(res.data.totalToplamByMasa);
