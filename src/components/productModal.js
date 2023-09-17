@@ -15,12 +15,12 @@ function ProductModal({ product, show, handleClose}) {
 
     useEffect(() => {
         if (product && product.id) {
-            axios.get(`https://demobackend-j4un.onrender.com/getLikeNumber/${product.id}`)
+            axios.get(`https://serverdeneme-p4tc.onrender.com/getLikeNumber/${product.id}`)
                 .then(res => {
                     setNumberLike(res.data[0].likeNumber);
                 })
                 .catch(err => console.log(err));
-            axios.get(`https://demobackend-j4un.onrender.com/getDislikeNumber/${product.id}`)
+            axios.get(`https://serverdeneme-p4tc.onrender.com/getDislikeNumber/${product.id}`)
                 .then(res => {
                     setNumberDislike(res.data[0].dislikeNumber);
                 })
@@ -30,7 +30,7 @@ function ProductModal({ product, show, handleClose}) {
 
     const handleLike = () => {
         if (!likeDisabled) {
-            axios.post(`https://demobackend-j4un.onrender.com/like/${product.id}`)
+            axios.post(`https://serverdeneme-p4tc.onrender.com/like/${product.id}`)
                 .then(res => {
                     setNumberLike(numberLike + 1);
                     setLikeDisabled(true);
@@ -42,7 +42,7 @@ function ProductModal({ product, show, handleClose}) {
 
     const handleDislike = () => {
         if (!dislikeDisabled) {
-            axios.post(`https://demobackend-j4un.onrender.com/dislike/${product.id}`)
+            axios.post(`https://serverdeneme-p4tc.onrender.com/dislike/${product.id}`)
                 .then(res => {
                     setNumberDislike(numberDislike + 1);
                     setLikeDisabled(true);
@@ -65,7 +65,7 @@ function ProductModal({ product, show, handleClose}) {
         <>
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header className='ürünModal'>
-                    <img className='modalImage img-fluid' src={product.image === null ? ResimYok : `https://demobackend-j4un.onrender.com/images/` + product.image} />
+                    <img className='modalImage img-fluid' src={product.image === null ? ResimYok : `https://serverdeneme-p4tc.onrender.com/images/` + product.image} />
                 </Modal.Header>
                 <Modal.Body>
                     <Modal.Title>
