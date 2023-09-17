@@ -9,7 +9,7 @@ function StockChart({categoryID}) {
     const [title,setTitle] = useState("");
          
     useEffect(() => {
-        axios.get(`https://demobackend-j4un.onrender.com/getAllStock/${categoryID}`)
+        axios.get(`https://serverdeneme-p4tc.onrender.com/getAllStock/${categoryID}`)
         .then(res => {
             const isimler = res.data.map(item => item.isim); 
             setLabels(isimler); 
@@ -19,7 +19,7 @@ function StockChart({categoryID}) {
     }, []);
     
     useEffect(() => {
-        axios.get(`https://demobackend-j4un.onrender.com/getCategoryName/${categoryID}`)
+        axios.get(`https://serverdeneme-p4tc.onrender.com/getCategoryName/${categoryID}`)
         .then(res => {
             setTitle(res.data[0].kategoriName);
         })
