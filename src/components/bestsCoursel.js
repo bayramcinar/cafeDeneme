@@ -14,7 +14,7 @@ function BestsCoursel({ isLoading, images }) {
                         ) : (
                             <img
                                 className="d-block w-100"
-                                    src={`https://demobackend-j4un.onrender.com/images/${image.image}`}
+                                    src={`https://serverdeneme-p4tc.onrender.com/images/${image.image}`}
                                 alt={`Image ${index + 1}`}
                             />
                         )}
